@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :user do
     name { 'John' }
-    password  { 'QPFJWz1343439' }
+    password { 'QPFJWz1343439' }
 
     trait :with_wrong_min_password_length do
       password { Faker::Alphanumeric.alpha(number: 5) }

@@ -30,6 +30,9 @@ gem 'bootsnap', '>= 1.4.4', require: false
 
 group :development, :test do
   gem 'pry-rails'
+  gem 'rubocop', '~> 0.70.0'
+  gem 'rubocop-performance', '~> 1.2.0'
+  gem 'rubocop-rails', '~> 2.0.0'
 end
 
 group :development do

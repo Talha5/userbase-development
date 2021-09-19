@@ -24,7 +24,7 @@ class PasswordChangesDetector
         calculate_duplicate_characters_change_count
       end
     end
-    
+
     return_min_error_count
   end
 
@@ -58,7 +58,7 @@ class PasswordChangesDetector
     total_changes = repeating_chars.map do |r_c|
       r_c.length - MIN_ALLOWED_REPEATING_CHARS_LIMIT
     end
-    current_min_changes.push({ name: 'duplicate_characters', count: total_changes.length})
+    current_min_changes.push({ name: 'duplicate_characters', count: total_changes.length })
   end
 
   def return_min_error_count

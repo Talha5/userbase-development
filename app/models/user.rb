@@ -19,23 +19,24 @@ class User < ApplicationRecord
     repeating_characters
   end
 
-  # FIXME: use internationalization to avoid same strings all over the app.
+  # TODO: use internationalization of error messages to avoid same strings all over the app.
   def atleast_one_number
-    errors.add(:base, 'Password should have atleast one number') unless password.match(PASSWORD_ATLEAST_ONE_NUMBER_REQUIREMENTS).present?
+    errors.add(:base, 'Password should have atleast one number') if password.match(PASSWORD_ATLEAST_ONE_NUMBER_REQUIREMENTS).blank?
   end
 
   def atleast_one_lower_character
-    errors.add(:base, 'Password should have atleast one lower case character') unless password.match(PASSWORD_ATLEAST_ONE_LOWER_LETTER_REQUIREMENTS).present?
+    errors.add(:base, 'Password should have atleast one lower case character') if password.match(PASSWORD_ATLEAST_ONE_LOWER_LETTER_REQUIREMENTS).blank?
   end
 
   def atleast_one_upper_character
-    errors.add(:base, 'Password should have atleast one upper case character') unless password.match(PASSWORD_ATLEAST_ONE_UPPER_LETTER_REQUIREMENTS).present?
+    errors.add(:base, 'Password should have atleast one upper case character') if password.match(PASSWORD_ATLEAST_ONE_UPPER_LETTER_REQUIREMENTS).blank?
   end
 
   def repeating_characters
     errors.add(:base, 'Password has duplicate characters') if password.match(PASSWORD_REPEATING_CHARS_REQUIREMENTS).present?
   end
 
+  # TODO: use something more performant eg: active-record-import for efficient data imports into database.
   def self.import(file)
     users = []
     changes = []
@@ -49,6 +50,5 @@ class User < ApplicationRecord
       changes.push("Change #{minimum_changes_required_count.result} of #{user.name} password")
     end
     changes
-    # use something more performant eg: active-record-import for efficient data imports into database.
   end
 end
