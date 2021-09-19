@@ -1,0 +1,8 @@
+<h1>welcome to User Base</h1>
+<%= form_for @users, url: users_path do |f| %>
+   <div class="form-group">
+      <%= f.label :file, "Upload CSV File" %>
+      <%= f.file_field :file, class: 'form-control-file', required: true %>
+   </div>
+   <%= f.submit 'Upload CSV' %>
+<% end %>
