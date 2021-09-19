@@ -46,7 +46,7 @@ class User < ApplicationRecord
     end
     users.each do |user|
       user.save && changes.push("#{user.name} was successfully saved.") && next if user.valid?
-      minimum_changes_required_count = PasswordChangesDetector.new(user)
+      minimum_changes_required_count = PasswordChangesCalculator.new(user)
       changes.push("Change #{minimum_changes_required_count.result} of #{user.name} password")
     end
     changes

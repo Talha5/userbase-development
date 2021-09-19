@@ -1,4 +1,4 @@
-class PasswordChangesDetector
+class PasswordChangesCalculator
   MIN_ALLOWED_REPEATING_CHARS_LIMIT = 2
 
   def initialize(user)
