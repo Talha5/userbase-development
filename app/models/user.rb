@@ -19,6 +19,7 @@ class User < ApplicationRecord
     repeating_characters
   end
 
+  # FIXME: use internationalization to avoid same strings all over the app.
   def atleast_one_number
     errors.add(:base, 'Password should have atleast one number') unless password.match(PASSWORD_ATLEAST_ONE_NUMBER_REQUIREMENTS).present?
   end

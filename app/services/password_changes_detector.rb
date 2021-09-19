@@ -20,8 +20,6 @@ class PasswordChangesDetector
         get_atleast_one_upper_char_change_count
       when 'Password has duplicate characters'
         get_duplicate_characters_change_count
-      else
-        1
       end
     end
     
@@ -53,18 +51,7 @@ class PasswordChangesDetector
   end
 
   def get_duplicate_characters_change_count
-    # duplicates = user.password.chars.group_by { |char| char }.select { |key, value| value.size > 1 }
-    # total_changes = 0
-    # duplicates.each do |item, value|
-    #   binding.pry
-    #   total_changes += 2 if value.size == 3
-    #   total_changes += 1 if value.size == 2
-    # end
-    # binding.pry
-    # current_min_changes.push({
-    #   name: 'duplicates',
-    #   count: total_changes
-    # })
+    binding.pry
   end
 
   def return_min_error_count
