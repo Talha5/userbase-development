@@ -1,24 +1,44 @@
-# README
+# UserBase
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A tool to import users from a given csv into database.
 
-Things you may want to cover:
+## Installation
 
-* Ruby version
+#### Clone the repository
 
-* System dependencies
+```shell
+$ git clone https://github.com/Talha5/userbase-development
+$ cd userbase-development
+```
 
-* Configuration
+#### Check your Ruby version
 
-* Database creation
+```shell
+ruby -v
+```
 
-* Database initialization
+It should be `ruby 2.7.2`
 
-* How to run the test suite
+#### Install dependencies
 
-* Services (job queues, cache servers, search engines, etc.)
+Using [Bundler](https://github.com/bundler/bundler) and [Yarn](https://github.com/yarnpkg/yarn):
 
-* Deployment instructions
+```shell
+bundle && yarn
+```
 
-* ...
+#### Initialize the database
+
+```shell
+$ rails db:create
+$ rails db:migrate
+```
+
+## Usage
+
+- run rails in first terminal => `rails s`
+## Contributing
+
+Please follow these style guides:
+
+- [Ruby style Guide](https://github.com/rubocop-hq/ruby-style-guide)
