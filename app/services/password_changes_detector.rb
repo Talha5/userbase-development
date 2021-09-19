@@ -51,7 +51,7 @@ class PasswordChangesDetector
   end
 
   def get_duplicate_characters_change_count
-    binding.pry
+    # TODO: check for duplicate characters
   end
 
   def return_min_error_count

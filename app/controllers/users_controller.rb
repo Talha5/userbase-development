@@ -1,7 +1,11 @@
 class UsersController < ApplicationController
   def create
-    @result = User.import(params[:user][:file])
-    binding.pry
-    redirect_to root_path
+    respond_to do |format|
+      if @import = User.import(params[:user][:file])
+        format.js { render :show }
+      else
+        format.js { }
+      end
+    end
   end
 end
